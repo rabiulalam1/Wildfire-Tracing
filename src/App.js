@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import Map from "./components/Map";
 import Loader from "./components/Loader";
+import Header from "./components/Header";
 import axios from "axios";
 
 function App() {
-  console.log("hello");
   const [eventData, setEventData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -32,12 +32,11 @@ function App() {
       setLoading(false);
     };
     fetchEvents();
-    console.log(eventData);
   }, []);
 
   return (
     <div>
-      <h1>Welcome</h1>
+      <Header />
       {!loading ? <Map eventData={eventData} /> : <Loader />}
     </div>
   );
